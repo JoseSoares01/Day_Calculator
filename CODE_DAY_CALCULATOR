@@ -1,0 +1,41 @@
+from datetime import datetime
+
+# Função para calcular a diferença de dias, semanas e anos entre duas datas
+def calcular_diferenca_de_dias(data_inicial, data_final):
+    # Calcula a diferença em dias
+    diferenca_dias = (data_final - data_inicial).days
+    
+    # Calcula a quantidade de semanas
+    semanas = diferenca_dias / 7
+    
+    # Calcula a quantidade de anos, considerando 365.25 dias por ano (para anos bissextos)
+    anos = diferenca_dias / 365.25
+    
+    # Obtém o dia da semana da data inicial
+    dia_da_semana = data_inicial.strftime("%A")
+    
+    # Retorna os resultados
+    return diferenca_dias, semanas, anos, dia_da_semana
+
+# Função principal
+def main():
+    # Entrada de data inicial
+    data_inicial_str = input("Digite a data inicial (formato: YYYY-MM-DD): ")
+    data_inicial = datetime.strptime(data_inicial_str, "%Y-%m-%d")
+    
+    # Entrada de data final
+    data_final_str = input("Digite a data final (formato: YYYY-MM-DD): ")
+    data_final = datetime.strptime(data_final_str, "%Y-%m-%d")
+    
+    # Calcula a diferença de dias, semanas, anos e o dia da semana
+    diferenca_dias, semanas, anos, dia_da_semana = calcular_diferenca_de_dias(data_inicial, data_final)
+    
+    # Exibe os resultados
+    print(f"\nQuantidade de dias: {diferenca_dias:.2f}")
+    print(f"Dia da semana da data inicial: {dia_da_semana}")
+    print(f"Quantidade de semanas: {semanas:.2f}")
+    print(f"Quantidade de anos: {anos:.2f}")
+
+# Inicializa o programa
+if __name__ == "__main__":
+    main()
