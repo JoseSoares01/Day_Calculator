@@ -1,0 +1,18 @@
+START program
+
+ASK for start_date
+ASK for end_date
+
+DEFINE function calculate_date_difference(start_date, end_date):
+    CALCULATE difference_in_days = end_date - start_date
+    CALCULATE weeks = difference_in_days / 7
+    CALCULATE years = difference_in_days / 365.25
+    GET day_of_week = day of the week for start_date
+    RETURN difference_in_days, weeks, years, day_of_week
+
+DISPLAY difference_in_days
+DISPLAY day_of_week
+DISPLAY weeks
+DISPLAY years
+
+END program
